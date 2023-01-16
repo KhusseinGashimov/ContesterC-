@@ -1,0 +1,70 @@
+1)#include <iostream>
+using namespace std;
+int f(int n){
+    if (n == 1 || n == 2) return (n - 1);
+    return f(n - 1) + f(n - 2);
+}
+int main(){
+    int n; 
+    cin >> n;
+    cout << f(n+1) << " ";
+    return 0;
+}
+2)#include<iostream>
+#include<cmath>
+using namespace std;
+int repeat(int n) {
+  if (n > 0) {
+    int k;
+    cin >> k;
+    repeat(n - 1);
+    cout << k << " ";
+  }
+  return 0;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  repeat(n);
+  return 0;
+}
+3)#include<iostream>
+#include<cmath>
+using namespace std;
+int repeat(int n) {
+  if (n > 0) {
+    string k;
+    cin >> k;
+    repeat(n - 1);
+    cout << k <<endl;
+  }
+  return 0;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  repeat(n);
+  return 0;
+}
+7)#include <iostream>
+#include <algorithm>
+using namespace std;
+void permutations(string str, int n, string result){
+    // 1 character in left
+    if (n == 1){ cout << result + str << endl; return;}
+    for (int i = 0; i < n; i++){
+        // push the current character into the output string
+        permutations(str.substr(1), n - 1, result + str[0]);
+        // left-rotate the string by 1 unit for the next iteration (use a reverse iterator to right-rotate the string)
+        rotate(str.begin(), str.begin() + 1, str.end());
+    }
+}
+int main(){
+    string str;
+    cin >> str;
+    string result;
+    permutations(str, str.size(), result);
+    return 0;
+}

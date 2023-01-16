@@ -1,0 +1,329 @@
+1)#include <iostream>
+#include <cstring>
+using namespace std;
+int check(char s[1000],int x) {
+
+    for (int i = 0; i < 1000; i++) {
+        if ((s[i] == 'A' || s[i] == 'a') && (s[i + 1] == 'I' || s[i + 1] == 'i') && (s[i + 2] == 'T' || s[i + 2] == 't') && (s[i + 3] == 'U' || s[i + 3] == 'u')) {
+            x = 0;
+            cout << "YES";
+            break;
+        }
+        else { x = 1; }
+    }
+    if (x == 1) { cout << "NO"; }
+    return 0;
+}
+int main() {
+    char s[1000];
+    int x = 0;
+    cin >> s;
+    check(s, x);
+    return 0;
+}
+2)#include <iostream>
+#include <cstring>
+using namespace std;
+
+void replace(char* a) {
+  for (int i = 0; i < strlen(a); i++) {
+    if (a[i] == '!') { a[i] = '.'; }
+  }
+}
+int main() {
+  char a[1000];
+  char* pa = a;
+  cin.getline(pa, 1000);
+  replace(pa);
+  cout << a;
+  return 0;
+}
+3)#include <iostream>
+#include <cstring>
+using namespace std;
+void a(char* line){ 
+     for(int i=0;i < strlen(line);i++){
+         if((strlen(line)-i)%3==0 && i>0){cout << " "; }
+         cout << line[i]; 
+     }
+}
+int main (){
+    char *line1=new char[100]; 
+    cin >> line1; 
+    a(line1); 
+}
+4)#include <iostream>
+#include <cstring>
+using namespace std;
+
+void mostRecent(char* text, char* word) {
+    int num = 0;
+    int num1 = 0;
+    int index;
+    for (int i = 0; i < strlen(text); i++) {
+        if ((text[i] >= 'A' || text[i] >= 'a') && (text[i] <= 'Z' || text[i] <= 'z')) {
+            num++;
+        }
+        else if (text[i] == ' ') {
+            num = 0;
+            index = i;
+        }
+    }
+    for (int i = index + 1; i < strlen(text); i++) {
+        if ((text[i] >= 'A' || text[i] >= 'a') && (text[i] <= 'Z' || text[i] <= 'z')) {
+            if (text[i] >= 'a' && text[i] <= 'z') {
+                text[i] -= 32;
+            }
+            cout << text[i];
+        }
+    }
+}
+int main() {
+    char arr[1000], arr1[1000];
+    cin.getline(arr, 1000);
+    mostRecent(arr, arr1);
+    return 0;
+}
+5)#define _CRT_SECURE_NO_WARNINGS
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+void makeWords(char* str, char** words, int* number) 
+{
+    char* token = strtok(str, " ");
+    while (token != NULL)
+    {
+        strcpy(words[*number], token);
+        (*number)++;
+        token = strtok(NULL, " ");
+    }
+}
+void mostRecent(char* str, char** word, int number) 
+{
+
+    for (int i = 0; i < number; i++)
+    {
+        char temp[100];
+        strcpy(temp, word[i]);
+        for (int j = i + 1; j < number; j++)
+        {
+            if (!strcmp(temp, word[j])) 
+            {
+                word[j][0] = '0';
+            }
+        }
+    }
+}
+
+void outputWords(char** word, int number)
+{
+    for (int i = 0; i < number; i++)
+    {
+        if (word[i][0] != '0')
+        {
+            cout << word[i] << " ";
+        }
+    }
+}
+
+int main()
+{
+    char str[1001];
+    char** words = new char* [30];
+    int number = 0;
+    cin.getline(str, 1001);
+    for (int i = 0; i < 30; i++)
+    {
+        words[i] = new char[100];
+    }
+    makeWords(str, words, &number);
+    mostRecent(str, words, number);
+    outputWords(words, number);
+    for (int i = 0; i < strlen(str); i++)
+    {
+        delete[] words[i];
+    }
+    delete[] words;
+    return 0;
+}
+6)#include <iostream>
+#include <cstring>
+#include <string>
+using namespace std;
+
+bool isNumber(char* A, int index){
+    if (A[index] >= '0' && A[index] <= '9') return 1;
+    else return 0;
+}
+void placeSpace(char x, int index){
+    if (index % 3 == 0) cout << " ";
+    cout << x;
+}
+void findLongest(char* str){
+    int n = strlen(str);
+    string number = "";
+    for (int i = 0; i < n; i++){
+        string ans = "";
+        while (i < n && isNumber(str, i) == 1){
+            ans += str[i];
+            i++;
+        }
+        if (ans.size() > number.size()) number = ans;
+    }
+    for (int i = 0; i < number.size(); i++){
+        if (i == 0) placeSpace(number[i], 2);
+        else placeSpace(number[i], number.size() - i);
+    }
+}
+int main(){
+    char* str = new char[1001];
+    cin.getline(str, 1001);
+    findLongest(str);
+    delete[]str;
+    return 0;
+}
+7)#include <iostream>
+#include<cstring>
+using namespace std;
+bool a(char* a, char* b) {
+    if (strlen(a) > strlen(b)) return true;
+    if (strlen(a) < strlen(b)) return false;
+    for (int i = 0; i < strlen(a); i++) {
+        if (a[i] > b[i]) return true;
+        if (a[i] < b[i]) return false;
+    }
+    return false;
+}
+int main() {
+    char* q = new char[1001];
+    char* w = new char[2002];
+    char* e = new char[3003];
+    cin >> q >> w >> e;
+    if (a(q, w) && a(q, e)) cout << q;
+    else if (a(w, e)) cout << w;
+    else cout << e;
+}
+8)#include<iostream>
+#include<cstring>
+using namespace std;
+void solutions(char* a, char* b, char* sum) {
+    int set = 0, z = 0;
+    for (int i = strlen(a) - 1; i >= 0; i--) {
+        int n = int(a[i] - '0'), m = int(b[i] - '0');
+        sum[z] = char(((n + m + set) % 10) + '0');
+        z++;
+        set = (n + m + set) / 10;
+    }
+    if (set > 0) {
+        sum[strlen(sum)] = (set + '0');
+    }
+}
+void doing(int* A, int* B, char* a, char* b, char* c) {
+    int i = 0; int z = 0;
+    while (*A < *B) {
+        c[i] = '0';
+        i++;
+        (*A)++;
+    }
+    for (int i = strlen(c); i < strlen(c) + strlen(a); i++) {
+        c[i] = a[z];
+        z++;
+    }
+}
+
+int main() {
+    char a[1051] = "";
+    char b[1051] = "";
+    char c[1051] = "";
+    cin >> a >> b;
+    int A = strlen(a), B = strlen(b);
+    if (A > B) {
+        swap(A, B);
+        swap(a, b);
+    }
+    doing(&A, &B, a, b, c);
+    char total[1051] = "";
+    solutions(c, b, total);
+    for (int i = strlen(total) - 1; i >= 0; i--) {
+        cout << total[i];
+    }
+    return 0;
+}
+9)#include <iostream> 
+#include <cstring> 
+using namespace std;
+int div(char *arr) {
+    int odd = 0, even = 0;
+    for (int i = 0; i < strlen(arr); i += 2) {odd += arr[i] - 48;}
+    for (int i = 1; i < strlen(arr); i += 2) {even += arr[i] - 48;}
+    if (even == odd) {cout << "YES";}
+    else {cout << "NO";}
+    return 0;
+}
+int main() {
+    char arr[10000];
+    cin.getline(arr, 10000);
+    div(arr);
+}
+10)#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+  char a[10001];
+  int counter=0;
+  cin>>a;
+  for(int i=0;i<strlen(a);i++){
+    if((a[i]=='>' && a[i+1]=='>' && a[i+2]=='-' && a[i+3]=='-' && a[i+4]=='>') || (a[i]=='<' && a[i+1]=='-' && a[i+2]=='-' && a[i+3]=='<' && a[i+4]=='<'))
+      counter++;
+  }
+  cout<<counter;
+  return 0;
+}
+11)#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    int n, m;
+    cin >> n >> m;
+    bool firstX;
+    if (n % 2 == 0) firstX = 1; 
+    else firstX = 0; 
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (firstX == 1) cout << 'X';
+            else cout << '.';
+            firstX = !firstX;
+        }
+        cout << '\n';
+        if (m % 2 == 0) firstX = !firstX;
+    }
+    return 0;
+}
+12)#include <iostream>
+#include <cstring>
+#include <iomanip> 
+using namespace std;
+bool f(char x) {
+    if (x >= 'a' and x <= 'z');
+    if (x >= 'A' and x <= 'Z');
+    return 0;
+}
+void a(char* N, int n) {
+    double ans1 = 0; double ans2 = 0;
+
+    for (int i = 0; i < n; i++) {
+        int k = i;
+        while (i < n and f(N[i]))
+            ans1++, i++;
+        if (i != k) ans2++;
+    }
+    cout << ans1 / ans2 << endl;
+}
+int main() {
+    char N[1001];
+    cin.getline(N, 1001);
+    int n = strlen(N);
+    a(N, n);
+}

@@ -1,0 +1,534 @@
+1)#include<iostream> 
+#include<cmath>
+using namespace std;
+int main() {
+  int massive[100][100];
+  int count, amount;
+  cin >> count >> amount;
+  //create new matrix 
+  for (int i = 0; i < count; i++){
+    for (int j = 0; j <amount; j++){
+      cin >> massive[i][j];
+    }
+  }
+  //find min value 
+  int min = massive[0][0];
+  for (int i = 0; i < count; i++){
+    for (int j = 0; j < amount; j++){
+      if (massive[i][j] < min) 
+      min = massive[i][j];
+    }
+  }
+  cout << min << " ";
+}
+2)#include <iostream>
+#include <cmath>
+using namespace std;
+int main () {
+  int count,mass[100][100], a=0, b=0;
+  cin >> count;
+  for (int i = 0; i < count; i++){
+    for (int j = 0; j < count; j++){
+      cin >> mass[i][j];
+    }
+  }
+  for (int i = 0;i < count; i++){
+    for (int j = 0;j < count;j++){
+      if (i == j)
+        a += mass[i][j];
+      if (i + j == count - 1)
+        b += mass[i][j];
+    }
+  }
+  cout << a << " " << b << endl;;
+}
+3)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    int arr[100][100];
+    int count, amount;
+    cin >> count >> amount;
+    for (int i = 0;i < count;i++) {
+        for (int j = 0;j < amount;j++) {
+            cin >> arr[i][j];
+        }
+    }
+    for (int i = 0;i < count;i++) {
+        for (int j = 0;j < amount;j++) {
+            if (arr[i][j] == 0){
+                cout << i + 1 << " " << j + 1 << endl;
+            }
+        }
+    }
+} 
+4)#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+int main() {
+ 
+     int row = 0;
+     int col = 0;
+    int  arr[100][100];
+    int count, amount;
+    cin >> count >> amount;
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < amount; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < amount; j++) {
+            if (arr[i][j] == -1) {
+                row = i + 1;
+                col =  j + 1;
+            }
+
+        }
+    }
+    if (row == 0 && col == 0) {
+        cout << -1 << " " << -1;
+    }
+    else {
+        cout << row << ' ' << col;
+    }
+    return 0;
+    }
+5)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    int mass[100][100], mass1[100][100],sum[100][100], count;
+    cin >> count;
+    for(int i = 0; i<count; i++){
+        for(int j=0; j<count;j++){
+            cin>>mass[i][j];
+        }
+    }
+    for(int i=0;i<count;i++){
+        for(int j=0;j<count;j++){
+            cin>>mass1[i][j];
+        }
+    }
+    for(int i=0;i<count;i++){
+        for(int j=0;j<count;j++){
+            sum[i][j]=mass[i][j]+mass1[i][j];
+        }
+    }
+    
+    for(int i=0;i<count;i++){
+        for(int j=0; j<count;j++){
+            cout<<sum[i][j]<<" ";
+            if(j ==count-1){
+                cout<<endl;
+            }
+        }
+    }
+    return 0;
+}
+6)#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    int mass[100][100], count;
+    cin >> count;
+    for (int i = 0; i < count; i++){
+        for (int j = 0; j < count; j++){
+            cin >> mass[i][j];
+        }
+    }
+    for (int i = 0; i < count;i++){
+        for (int j = 0; j < count; j++){
+            if (mass[i][j] != mass[j][i]) {
+                cout << "NO" << endl;
+                return 0;
+            }
+        }
+    }
+    cout << "YES";
+}
+7)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    bool go = false;
+    int mass[100][100], count,sum=0;
+    cin >> count;
+    for(int i=0;i<count;i++){
+        for(int j=0;j<count;j++){
+            cin>>mass[i][j];
+        }
+    }
+    for(int i=0;i<count;i++){
+        for(int j=0;j<count;j++){
+            if(i>0 && j<i){
+                sum+=mass[i][j];
+            }
+        }
+    }
+    cout << sum;
+    return 0;
+}
+8)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    bool go = false;
+    int mass[100][100], count,sum=0;
+    cin >> count;
+    for(int i=0;i<count;i++){
+        for(int j=0;j<count;j++){
+            cin>>mass[i][j];
+        }
+    }
+    for(int i=0;i<count;i++){
+        for(int j=0;j<count;j++){
+            if(j>0 && i<j){
+                sum+=mass[i][j];
+            }
+        }
+    }
+    cout << sum;
+    return 0;
+}
+9)#include <iostream> 
+#include <cmath> 
+using namespace std; 
+int main(){ 
+    int count, amount, a = -9999, b, c;  
+    int mass[100][100]; 
+    cin >> count >> amount;  
+    for (int i = 0; i < count; i++) 
+        for (int j = 0; j < amount; j++) 
+            cin >> mass[i][j]; 
+    int j; 
+    for (int i = 0; i < amount; i++) {c = 0; 
+        for (j = 0; j < count; j++) { 
+            c += mass[j][i]; 
+        } if (c > a) { 
+            a = c;  
+            b = i +1; 
+        } 
+    } 
+    cout << b; 
+}
+10)#include <iostream>
+#include <cmath>
+#include <algorithm>
+using namespace std;
+int main() {
+    int count, amount;
+    int mass1[10000];
+    int mass[100][100];
+    cin >> count >> amount;
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < amount; j++) {
+            cin >> mass[i][j];
+        }
+    }
+    int k = 0;
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < amount; j++) {
+            if (mass[i][j] > 0) {
+                mass1[k] = mass[i][j];
+                ++k;
+            }
+        } 
+    }
+    cout << k << endl;
+    std::sort(mass1, mass1 + k);
+    for (int i = 0; i < k; i++) {
+        cout << mass1[i] << " ";
+    }
+    return 0;
+}
+11)#include <iostream>
+#include <iomanip>
+using namespace std;
+int main() {
+    int count;
+    const int row = 100;
+    cin >> count ;
+    int mass[row][row], num = count * count;
+    for (int j = 0; j < count; j++) {
+       
+            for (int i = 0; i < count; i++) {
+                mass[i][j] = num;
+                num--;
+            }
+            
+    }
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < count; j++) {
+            cout << setw(4) << mass[i][j];
+        }
+        cout << endl;
+    }
+    return 0;
+}
+12)#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    int count, amount, mass[100][100], rotatedMass[100][100];
+    cin >> count >> amount;
+    for (int i = 0; i < count; ++i) {
+        for (int j = 0; j < amount; ++j) {
+            cin >> mass[i][j];
+        }
+    }
+    for (int i = 0; i < amount; ++i) {
+        for (int j = 0; j < count; ++j) {
+            rotatedMass[i][j] = mass[j][amount-1-i];
+        }
+    }
+    cout << endl;
+    for (int i = 0; i < amount; ++i) {
+        for (int j = 0; j < count; ++j) {
+            cout << rotatedMass[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+13)#include <iostream>
+#include <cstring>
+using namespace std;
+int main(){
+int i;
+char name[80];
+char numbers [100] [ 100 ] = {
+"Tom", "555-3322",
+"Mary", "555-8976",
+"Jon", "555-1037",
+"Rachel", "555-1400",
+"Sherry", "555-8873"
+};
+cin >> name;
+for(i = 0; i < 10; i += 2)
+if(strcmp(name, numbers[i])==0) {
+cout  << numbers [i + 1] ;
+break;
+}
+if(i == 10) 
+    cout << "Not found";
+return 0;
+}
+14)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    int count,sum;
+    cin >> count;
+    for (int i = 0; i < count; i++){
+        for (int j = 0; j <= i; j++){
+            if (j == 0 || i == 0)
+                sum = 1;
+            else
+                sum = sum * (i - j + 1) / j; 
+            cout << sum << " ";}
+        cout << endl;}
+    return 0;
+}
+15)#include<iostream>
+using namespace std;
+int main(){
+    int n, m, count;
+    cin >> n>>m;
+    count = n;
+    bool die[500];
+    for (int i = 0; i < n; i++){die[i] = false;}
+    int i=0, j=0;
+    while (count != 1){
+     if(die[i]==false){j++;}   
+     if(j==m){
+         j=0;
+         count--;
+         die[i]=true;
+     }
+     if(i==n-1){i=0;}
+     else{i++;}
+    }
+    for (int i = 0; i < n; i++){
+        if (!die[i]){ cout<< i+1;}
+    }
+    return 0;
+}
+16)#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    int n, m, A[100][100], k = -1;
+    cin >> n >> m;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            A[i][j] = ++k;
+        }
+    }
+
+    for (int i = 0; i < n; ++i) {
+        if (i%2) {
+            for (int j = m-1; j >= 0; --j) cout << A[i][j] << " ";
+        }
+        else {
+            for (int j = 0; j < m; ++j) cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+17)#include <iostream>
+using namespace std;
+int main()
+{
+    const int number = 10;
+    int mass[number][number], num = 0, mx = 0;
+    for (int i = 0; i < 10; i ++)
+    {
+        for (int j = 0; j < 10; j ++)
+        {
+            cin >> mass[i][j];
+        }
+    }
+
+    for (int i = 0, cur_length = 0; i < 10; i ++, cur_length = 0)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            if (mass[i][j] == 0)
+            {
+                cur_length ++;
+                continue;
+            }
+            mx = max(cur_length, mx), cur_length = 0;
+        }
+        mx = max(cur_length, mx);
+    }
+
+    for (int j = 9, cur_length = 0; j >= 0; j --, cur_length = 0)
+    {
+        for (int i = 9; i >= 0; i --)
+        {
+            if (mass[i][j] == 0)
+            {
+                cur_length ++;
+                continue;
+            }
+            mx = max(cur_length, mx), cur_length = 0;
+        }
+        mx = max(mx, cur_length);
+    }
+    cout << mx;
+    return 0;
+}
+18)#include <iostream>
+using namespace std;
+int main() {
+  int n, t;
+  cin >> n >> t;
+  int mass[10][10], mass1[10][10];
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      cin >> mass[i][j];
+    }
+  }
+  for (int q = 0; q < t; q++) {
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+        int sum = 0;
+        if (mass[i][j+1] == 1 && (j+1)<n) {
+          sum++;
+        }
+        if (mass[i][j-1] == 1 && (j-1)>=0) {
+          sum++;
+        }
+        if (mass[i + 1][j] && (i + 1) < n) {
+          sum++;
+        }
+        if (mass[i - 1][j] && (i - 1) >= 0) {
+          sum++;
+        }
+        if (mass[i - 1][j - 1] && (i - 1) >= 0 && (j - 1) >= 0) {
+          sum++;
+        }
+        if (mass[i-1][j+1] && (i-1)>=0 && (j+1)<n){
+          sum++;
+        }
+        if (mass[i + 1][j + 1] && (i + 1) < n && (j + 1) < n) {
+          sum++;
+        }
+        if (mass[i + 1][j - 1] && (i + 1) < n && (j - 1) >= 0) {
+          sum++;
+        }
+        if (mass[i][j] == 1) {
+          if (sum < 2 || sum >= 3) {
+            mass1[i][j] = 0;
+          }
+          else {
+            mass1[i][j] = mass[i][j];
+          }
+        }
+        if (mass[i][j] == 0) {
+          if (sum >= 3) {
+            mass1[i][j] = 1;
+          }
+          else {
+            mass1[i][j] = 0;
+          }
+        }
+      }
+    }
+  }
+
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      cout << mass1[i][j]<<" ";
+      if (j == n - 1) {
+        cout << endl;
+      }
+    }
+  }
+  return 0;
+}
+19)#include<iostream>
+using namespace std;
+int main(int argc, char *argv[]){
+    int size;
+    cin >> size;
+    int matrix[size][size];
+    //create zero matrix
+    for (int i = 0; i < size; i++){
+        for (int j = 0; j < size; j++){
+            matrix[i][j] = 0;
+        }
+    }
+    
+    //fill in the snake's body with zeros
+    for (int i = 0; i < size; i += 2){
+        for (int j = i - 1; j < size - i; j++){ //fill ABOVE from left to right
+            matrix[i][j] = 1;
+        }
+    
+        for (int j = i + 1; j < size - i; j++){ //fill ON THE SIDE(RIGHT) from up to down
+            matrix[j][size - i - 1] = 1;        
+        }
+        
+        for (int j = i; j < size - i - 1; j++){ //fill BELOW from left to right
+            matrix[size - i - 1][j]= 1;
+        }
+        
+        for (int j = i + 2; j < size - i; j++){ //fill ON THE SIDE(LEFT) from up to down
+            matrix[j][i]= 1;
+        }
+    }
+    
+    //create snaked matrix
+    for (int i = 0; i < size; i++){
+        for (int j = 0; j < size; j++){
+            cout << matrix[i][j];
+        }
+        cout << endl;
+    }
+}

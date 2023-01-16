@@ -1,0 +1,392 @@
+1)#include <iostream>
+
+using namespace std;
+int main() {
+    float x, y, z;
+    cin >> x >> y >> z;
+    if ((x<y) && (y<z)) {
+        cout << "YES";
+    }
+    else {
+        cout << "NO";
+    }
+}
+2)#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    float x, y, z;
+    cin >> x >> y >> z;
+    if ((x<=y) && (y<=z)) {
+        cout << x*2<< endl;
+        cout << y*2<< endl;
+        cout << z*2<< endl;
+    }
+    else{
+        cout << fabs(x) << " "<< fabs(y) << " " << fabs(z);
+    }
+}
+3)#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+   float a, b, c, d, x1, x2;
+   cin >> a >> b >> c;
+   d = b*b - 4*a*c;
+   if(d>0) {
+    x1 = (-b+sqrt(d))/(2*a);
+    x2 = (-b-sqrt(d))/(2*a);
+    cout << x1 << " " << x2;
+   }
+   else if (d == 0) {
+    x1 = -(b/(2*a));
+    cout << fabs(x1);
+   }
+   else if (d<0) {
+    cout << "no solution";
+   }
+   return 0;
+}
+4)#include <iostream> 
+
+using namespace std;
+int main(){
+float x,y, z, h1, h2;
+cin >> x >> y >> z;
+h1 = max(x, y);
+h2 = min(x, y);
+cout << min(h2,z) << " " << max(h1,z);
+}
+5)#include <iostream> 
+
+using namespace std;
+int main(){
+    float x, y, z;
+    cin >> x >> y >> z;
+    if ((x<y+z) && (y<x+z) && (z<x+y)){
+        cout << "YES";
+    }
+    else {
+        cout << "NO";
+    }
+}
+6)#include <iostream> 
+
+using namespace std;
+int main(){
+    int y, d;
+    cin >> y;
+    if (y%4==0){
+        d = 366;
+        if ((y%100==0) && (y%400 !=0)) {
+            d = 365;
+        }
+    }
+    else {
+        d = 365;
+    }
+    if (d == 365) {
+        cout << d <<endl;
+    }
+    else {
+        cout << d << endl;
+    }
+    return 0;
+}
+7)#include <iostream> 
+
+using namespace std;
+int main(){
+   int x, y,z;
+   cin >> x >> y >> z;
+   if ((x>31 || y>12) || (x>29 && y ==2 ))  {
+    cout << "no";
+   }
+   else if ((y == 1 && x<=31) || (y == 3 && x<=31) || (y == 5 && x<=31) || (y == 7 && x<=31) || (y == 8 && x<=31) || (y == 10 && x<=31) || (y == 12 && x<=31 )){
+    cout << "yes";
+   }
+   else if ((y == 4 && x<=30) || (y == 6 && x<=30) || (y == 9 && x<=30) || (y == 11 && x<=30)) {
+    cout << "yes";
+   }
+   else if (z%4==0 && x<=29 && y == 2 && (z % 100 != 0 || z % 400 ==0)) {
+    cout << "yes";
+   }
+   else if (x<=28 && y == 2 && (z% 100 == 0 ||  z % 400 !=0)) {
+    cout << "yes";
+   }
+   else {
+    cout << "no";
+   }
+}
+8)#include <iostream>  
+using namespace std; 
+int main() { 
+    int year, code, day, data; 
+    cin >> year; 
+    if(year==0) 
+    { 
+        return 0; 
+    } 
+    code = ((6 + (year % 100) ) + ((year % 100) / 4)) % 7; 
+    double week=1; 
+    for (day = 1;day <= 7;day++) 
+    { 
+        data = ((day + 1 + code) % 7); 
+        if (data == 1) 
+        { 
+            cout << day; 
+        } 
+    }return 0; 
+}
+9)#include <iostream>
+using namespace std;
+int main() {
+  int d, m, y;
+  cin >> d >> m >> y;
+  if ((m == 1 && d < 31) || (m == 3 && d < 31) || (m == 5 && d < 31) || (m == 7 && d < 31) || (m == 8 && d < 31) || (m == 10 && d < 31) || (m == 12 && d < 31)) {
+    cout << d+1 << " " << m << " "<< y;
+  }
+  else if ((m == 4 && d < 30) || (m == 6 && d < 30) || (m == 9 && d < 30) || (m == 11 && d < 30)) {
+    cout << d + 1 << " " << m << " " << y;
+  }
+  else if ((m == 1 && d == 31) || (m == 3 && d == 31) || (m == 5 && d == 31) || (m == 7 && d == 31) || (m == 8 && d == 31) || (m == 10 && d == 31)) {
+    cout << 1 << " " << m + 1 << y;
+  }
+  else if (m==12 && d==31) {
+    cout<<1<<" " <<1 <<" "<<y+1; }
+
+  else if ((m == 4 && d == 30) || (m == 6 && d == 30) || (m == 9 && d == 30) || (m == 11 && d == 30)) {
+    cout<<1<<" "<<m + 1<<" " << y;
+  }
+  else if (y % 4 == 0 && d < 29 && m == 2 && y % 100 != 0 && y % 400 == 0) {
+    cout<<d+1<<" "<<m<<" "<<y;
+  }
+  else if (y % 4 == 0 && m == 2 && d == 29 && y % 400 == 0 && y % 100 != 0) {
+    cout << 1 << " " << 3 << " " << y;
+  }
+  else if (d < 28 && m == 2 && y % 100 == 0 && y % 400 != 0) {
+    cout << d + 1 << " " << m << " " << y;
+  }
+  else if (d == 28 && m == 2 && y % 400 != 0 && y % 100 == 0) {
+    cout << 1 << " " << 3 << " " << y;
+  }
+  return 0;
+
+}
+10)#include <iostream>
+using namespace std;
+int main () {
+int b,n,i;
+cin>>b;
+n=1;
+for (i=1; i<=b; i++)
+n*=2;
+cout <<n<<endl;
+return 0;
+}
+11)#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    long factorial = 1.0;
+    cin >> n;
+    if (n < 0)
+        cout << "Error! Factorial of a negative number doesn't exist.";
+    else {
+        for(int i = 1; i <= n; ++i) {
+            factorial *= i;
+        }
+        cout << factorial;    
+    }
+
+    return 0;   
+}
+12)#include <iostream>
+using namespace std;
+int main(){
+    float sum=1;
+    int n;
+    cin >> n;
+    for(float i = 1;i<=n; ++i){
+        sum *= 1+1/(i*i);  
+    }
+    cout << sum;
+    return 0;
+}
+14)#include <iostream>
+#include <math.h>
+ 
+using namespace std;
+int main() {
+double n, b=0;
+cin>>n;
+for (double i=0; i<n; i++){
+    b=sqrt(2+b);
+}
+cout<<b<<endl;
+return 0;
+}
+15)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    float a, sum;
+    sum = 0;
+    int n;
+    cin >> a >> n;
+    for(int i = 1;i<=n; ++i){
+        sum +=float(a);  
+    }
+     cout << sum;
+}
+16)#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    double a;
+    int n;
+    cin>>a;
+    cin>>n;
+    double p=1;
+    for(int i=0;i<n;i++)
+        p*=(a+i);
+    cout<<p<<endl;
+ 
+ 
+    return 0;
+}
+17)#include <iostream>
+using namespace std;
+int main() {
+    float a, sum, h = 1;
+    int n;
+    cin >> a >> n; 
+    for (int i = 0; i <= n; ++i) {
+        h *= a+i;
+        sum += 1/h;
+    }
+    cout << sum;
+    return 0;
+}
+18)#include <math.h>
+#include <iostream>
+using namespace std;
+int main()
+{
+    float a;
+    int n;
+  float sum = 0;
+    cin >> a >> n;
+  for (int i = 1; i <= n; ++i)
+  {
+    sum += (1 / pow(a, i*2));
+  }
+    cout << sum+1/a;
+  return 0;
+}
+19)#include <iostream>
+#include <cmath>
+using namespace std;
+long double fact(int N){
+    if(N < 0) {
+        return 0;
+    }
+    if (N == 0){
+        return 1; 
+    }
+    else {
+        return N * fact(N - 1); 
+    }
+}
+int main(){
+    float x;
+    cin >> x;
+    float total = 0;
+    int a =1;
+    for(int i=1; i<=13; i=i+2){
+        total+=a*(pow(x,i)/fact(i)); 
+        a *=-1;
+    }
+    cout<<total;
+    return 0;
+}
+20)#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main() {
+    float x, a, sum;
+    int n;
+    cin >> x >> a >> n;
+    sum=pow(x+a,2);
+    for (int i = 1; i < n;i++ ) {
+        sum = pow(sum + a, 2);
+    }
+    sum=sum+a;
+    cout << setprecision(7) << ceil(sum*1000)/1000;
+    return 0;
+}
+21)#include <iostream>
+using namespace std;
+int main(){
+    int x;
+    float x1,x2;
+    cin>>x;
+    x1 = (x-2)*(x-4)*(x-8)*(x-16)*(x-32)*(x-64);
+    x2 = (x-1)*(x-3)*(x-7)*(x-15)*(x-31)*(x-63);
+    cout << x1/x2;
+    return 0;
+}
+22)#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    double answer = 0;
+    for (int i = 103; i > 0; i -= 2){
+    answer = 1 / (i + answer);}
+    cout<<answer;
+    return 0;
+}
+23)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    float x, fraction;
+    cin >> x;
+    fraction = x*x;
+    for(int i = 8; i>=1; --i){
+        fraction = x*x + pow(2,i)/fraction;
+    }
+    cout << x/fraction;
+    return 0;
+}
+24)#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+    int x;
+    float sum;
+    cin >> x;
+    for(int i = x; i<=50; ++i){
+        sum +=float(1/pow(i , 3));
+    }
+    cout << sum;
+    return 0;
+}
+25)#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    float x;
+    float total = 0;
+    for(int i = 1; i<=10; ++i){
+        cin >> x;
+        total +=float(pow(x, i));
+    }
+    cout << total;    
+    return 0;
+}

@@ -1,0 +1,97 @@
+1)#include <iostream>
+using namespace std;
+int main() {
+    int x;
+    cin >> x;
+    cout <<x;
+}
+2)#include <iostream>
+using namespace std;
+int main(){
+    int x, y;
+    cin >> x >> y;
+    cout << x+y;
+}
+3)#include <iostream>
+
+using namespace std;
+int main() {
+    int x, y;
+    cin >> x >> y;
+    cout << x*y;
+}
+4)#include <iostream>
+
+using namespace std;
+int main() {
+    int x, y, z;
+    cin >> x >> y >> z;
+    cout << x*x+y-z/2;
+}
+5)#include <iostream>
+
+using namespace std;
+int main() {
+    int x, y;
+    cin >> x >> y;
+    if (x%y==0) {
+        cout << "yes";
+    }
+    else {
+        cout << "no";
+    }
+    return 0;
+}
+6)#include <iostream>
+
+using namespace std;
+int main() {
+    int x, y;
+    cin >> x >> y;
+    if (x>y) {
+        cout << ">";
+    }
+    else if(x == y) {
+        cout << "=";
+    }
+    else if(x<y) {
+        cout << "<";
+    }
+}
+7)#include <iostream>
+
+using namespace std;
+int main() {
+    float x, y;
+    cin >> x >> y;
+    cout << (x+y)/2;
+}
+8)#include <iostream>
+
+using namespace std;
+int main() {
+    int x, y;
+    cin >> x >> y;
+    cout << x%y;
+}
+9)#include <iostream>
+
+using namespace std;
+int main() {
+    float k, c, x1, x2, x3;
+    x1=0.1;
+    x2=1;
+    x3=5;
+    cin >> k >> c;
+    cout << "x = " << x1 << " : " << "y = " << k*x1+c << endl;
+    cout << "x = " << x2 << " : " << "y = " << k*x2+c << endl;
+    cout << "x = " << x3 << " : " << "y = " << k*x3+c << endl;
+}
+10)#include <iostream>
+
+using namespace std;
+int main() {
+    float x, y;
+    cin >> x >> y;
+    cout << ((x-2*y)*x)/((-2)*y);
+}
